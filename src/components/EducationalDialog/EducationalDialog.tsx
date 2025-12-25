@@ -225,11 +225,11 @@ export function EducationalDialog() {
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-semibold text-accent">3.</span>
-                      <span>Click "Train" to start training the model on MNIST data</span>
+                      <span>Click &ldquo;Train&rdquo; to start training the model on MNIST data</span>
                     </div>
                     <div className="flex items-start gap-2">
                       <span className="font-semibold text-accent">4.</span>
-                      <span>Draw a digit on the canvas to test the trained model's predictions</span>
+                      <span>Draw a digit on the canvas to test the trained model&apos;s predictions</span>
                     </div>
                   </div>
                 </motion.div>
