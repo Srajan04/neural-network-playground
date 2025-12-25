@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Github } from 'lucide-react';
 import { DrawingCanvas, PredictionDisplay } from '@/components/DrawingCanvas';
 
 interface LeftPanelProps {
@@ -33,6 +34,27 @@ export function LeftPanel({ onPredict }: LeftPanelProps) {
           Prediction
         </h2>
         <PredictionDisplay />
+      </motion.div>
+      
+      {/* Credits Section */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="px-4 py-3 border-t border-border bg-background/50"
+      >
+        <div className="flex items-center justify-center gap-2 text-xs text-muted">
+          <span>Built by</span>
+          <a
+            href="https://github.com/Srajan04"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-accent transition-colors"
+          >
+            <Github className="w-3.5 h-3.5" />
+            Srajan
+          </a>
+        </div>
       </motion.div>
     </div>
   );
