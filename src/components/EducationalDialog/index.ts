@@ -1,0 +1,1 @@
+export { EducationalDialog } from './EducationalDialog';

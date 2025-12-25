@@ -35,6 +35,12 @@ interface Prediction {
 }
 
 interface AppState {
+  // Educational Dialog
+  showEducationalDialog: boolean;
+  hasSeenEducationalDialog: boolean;
+  setShowEducationalDialog: (value: boolean) => void;
+  setHasSeenEducationalDialog: (value: boolean) => void;
+
   // Theme
   darkMode: boolean;
   colorScheme: ColorScheme;
@@ -117,6 +123,12 @@ const initialTrainingStats: TrainingStats = {
 export const useStore = create<AppState>()(
   persist(
     (set) => ({
+      // Educational Dialog
+      showEducationalDialog: true,
+      hasSeenEducationalDialog: false,
+      setShowEducationalDialog: (value) => set({ showEducationalDialog: value }),
+      setHasSeenEducationalDialog: (value) => set({ hasSeenEducationalDialog: value }),
+
       // Theme
       darkMode: false,
       colorScheme: 'soft',
@@ -192,6 +204,7 @@ export const useStore = create<AppState>()(
     {
       name: 'nn-playground-storage',
       partialize: (state) => ({
+        hasSeenEducationalDialog: state.hasSeenEducationalDialog,
         darkMode: state.darkMode,
         colorScheme: state.colorScheme,
         networkMode: state.networkMode,

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sun, Moon, Play, Square, RotateCcw, Brain, Layers, Palette } from 'lucide-react';
+import { Sun, Moon, Play, Square, RotateCcw, Brain, Layers, Palette, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Switch } from '@/components/ui/Switch';
 import { SegmentedControl } from '@/components/ui/SegmentedControl';
@@ -22,6 +22,7 @@ export function Header({ onTrain, onReset }: HeaderProps) {
     setNetworkMode,
     isTraining,
     modelReady,
+    setShowEducationalDialog,
   } = useStore();
   
   const colorSchemes: { value: ColorScheme; label: string }[] = [
@@ -81,6 +82,17 @@ export function Header({ onTrain, onReset }: HeaderProps) {
       
       {/* Right Controls */}
       <div className="flex items-center gap-4">
+        {/* Help Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setShowEducationalDialog(true)}
+          className="p-2 rounded-lg bg-gradient-to-br from-accent/20 to-accent-secondary/20 hover:from-accent/30 hover:to-accent-secondary/30 transition-colors"
+          title="Learn about Neural Networks"
+        >
+          <HelpCircle className="w-5 h-5 text-accent" />
+        </motion.button>
+
         {/* Dark Mode Toggle */}
         <div className="flex items-center gap-2">
           <Sun size={14} className={`${darkMode ? 'text-muted' : 'text-amber-500'} transition-colors`} />
